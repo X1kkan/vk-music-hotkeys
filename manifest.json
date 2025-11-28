@@ -1,0 +1,54 @@
+{
+  "manifest_version": 3,
+  "name": "VK Hotkeys Controller",
+  "version": "1.1",
+  "description": "Control VK music with hotkeys",
+
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "scripting"
+  ],
+
+  "host_permissions": [
+    "https://vk.com/*"
+  ],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://vk.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+
+  "web_accessible_resources": [
+    {
+      "resources": ["page_bridge.js"],
+      "matches": ["https://vk.com/*"]
+    }
+  ],
+
+  "commands": {
+    "toggle_play": {
+      "description": "Toggle play/pause",
+      "suggested_key": { "default": "Alt+1" }
+    },
+    "volume_up": {
+      "description": "Increase volume",
+      "suggested_key": { "default": "Alt+5" }
+    },
+    "volume_down": {
+      "description": "Decrease volume"
+    },
+    "next_track": {
+      "description": "Play next track"
+    },
+    "prev_track": {
+      "description": "Play previous track"
+    }
+  }
+}
