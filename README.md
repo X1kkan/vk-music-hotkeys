@@ -1,1 +1,1 @@
-# vk-music-hotkeys-
+# vk-music-hotkeys
